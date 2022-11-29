@@ -21,3 +21,7 @@ View(total_summary_suspension)
 #Create a data frame
 lot_summary_PSI <- Suspension_Coil_table %>% group_by(Manufacturing_Lot) %>% summarize(Mean_PSI= mean(PSI), Median_PSI= median(PSI), Variance_PSI= var(PSI),  SD_PSI= sd(PSI),  .groups = 'keep')
 View(lot_summary_PSI)
+
+
+#Deliverable3
+
