@@ -24,4 +24,13 @@ View(lot_summary_PSI)
 
 
 #Deliverable3
+#Determine if the PSI across all manufacturing lots is statistically different 
+#from the population mean of 1,500 pounds per square inch
+#Perform t.test
+PSI_t.test <- t.test(Suspension_Coil_table$PSI, mu=1500)
 
+#Determine if the PSI for each manufacturing lot is statistically different from 
+#the population mean of 1,500 pounds per square inch
+t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot1")$PSI, mu=1500)
+t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot2")$PSI, mu=1500)
+t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot3")$PSI, mu=1500)
