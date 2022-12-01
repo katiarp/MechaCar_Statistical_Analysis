@@ -75,9 +75,12 @@ The t-test for all the manufacturing lots shows that there is not a significant 
 
 
 The following code was used to determine the t-test for all lots.
-``` t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot1")$PSI, mu=1500)
-t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot2")$PSI, mu=1500)
-t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot3")$PSI, mu=1500) ```
+``` t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot1")$PSI, mu=1500)```
+```t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot2")$PSI, mu=1500)```
+```t.test(subset(Suspension_Coil_table,Manufacturing_Lot=="Lot3")$PSI, mu=1500) ```
+
+
+
 
 ![Image_name](Resources/subset_t_tests.png)
 
