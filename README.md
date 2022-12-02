@@ -21,7 +21,7 @@ AutosRU’s is facing a production problem that is delaying the manufacturing pr
 
 ## Results
 
-I worked with two datasets containing miles-per-gallon(mpg) test results for 50 prototype MechaCars and results from multiple production lots establishing the design specifications for the MechaCar suspension coils.  These prototypes were manufactured according to certain specifications to determine the best vehicle performance. The first dataset contains different metrics collected from each prototype such as vehicle length, weight, spoiler angle, drivetrain, and ground clearance.
+I worked with two different datasets one containing miles-per-gallon(mpg) test results for 50 prototype MechaCars while the other showed results from multiple production lots establishing the design specifications for the MechaCar suspension coils.  These prototypes were manufactured according to certain specifications to determine the best vehicle performance. The first dataset contains different metrics collected from each prototype such as vehicle length, weight, spoiler angle, drivetrain, and ground clearance.
 
 ## Linear Regression to Predict MPG
 
@@ -31,11 +31,14 @@ This is the code used to obtain the multiple linear regression.
 
 ``` mpg_regression <- lm(mpg~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, MechaCar_table)```
 
+**Linear Regression Model**
 ![Image_name](Resources/summary_statistics.png)
+
+
 
 - After performing a **multiple linear regression**, we can see that **vehicle_length** and **ground_clearance** coefficients provide a *non-random amount of variance* to the **mpg** values.  When observing a change in the independent variable such as *vehicle length* we also observe a change in the *mpg* dependent variable. What this means is that these two variables have a considerable impact on the miles-per-gallon in each vehicle prototype.
 
-- One important question to answer when performing multiple linear regressions is to establish if the slope does not equal zero. In this case, we can confirm that the slope of this linear model shows a non-zero correlation. Some variables' p-values show that there is a correlation because they are under the usual significance level of 0.05; for instance, the p-value for *vehicle_length* is ``` 2.60e-12 ```, and the p-value for *ground_clearance*  is ```5.21e-08```. This suggests that there is a non-zero correlation between mpg and both of these variables. 
+- One important question to answer when performing multiple linear regressions is to establish if the slope does not equal zero. In this case, we can confirm that the slope of this linear model shows a non-zero correlation. Some variables' p-values show that there is a correlation because they are under the usual significance level of 0.05; for instance, the p-value for *vehicle_length* is ``` 2.60e-12 ```, and the p-value for *ground_clearance*  is ```5.21e-08```. This suggests that there is a non-zero correlation between mpg and both variables. 
 
 - Another important thing to observe in this linear model is to determine if it effectively predicts the mpg of the MechaCar prototypes. It seems that this multiple linear regression model predicts well the mpg of the MechaCar Prototype. By observing the multiple r-squared of the model of 0.7149, we can assert that around 70% of the variability of our dependent variable is explained with this model. 
 
@@ -44,7 +47,7 @@ This is the code used to obtain the multiple linear regression.
 
 ## Summary Statistics on Suspension Coils
 
-The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. The dataset shows test results of the weight capacities of multiple suspension coils in all production lots. To determine if the current manufacturing data meets these specificities, I will establish the mean, median, variance, and standard deviation. 
+The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch(PSI). The dataset shows test results of the weight capacities of multiple suspension coils in all production lots. To determine if the current manufacturing data meets these specificities, I will establish the mean, median, variance, and standard deviation. 
 
 The following code was used to find the mean, median, variance and standard deviation. 
 
@@ -55,10 +58,11 @@ The following code was used to find the mean, median, variance and standard devi
 ![Image_name](Resources/total_summary_suspension.png)
 
 
-When looking at the total summary suspension table above, we can see that the MechaCar design specifications are being met. The variance of the suspension coils in the total summary is ~62.3 which is less than 100 pounds per square inch (PSI).
-However, when we observe the summary per lot, in the table below, we find that lot number 3 is exceeding the design specifications. In lot number 3 we see a variance of ~170.3 PSI surpassing the 100PSI. 
+When looking at the total summary suspension table above, we can see that the MechaCar design specifications are being met. The variance of the suspension coils in the total summary is ~62.3 which is less than 100 PSI.
+However, when we observe the summary per lot, in the table below, we find that lot number 3 is exceeding the design specifications. In lot number 3 we see a variance of ~170.3 PSI surpassing the 100 PSI. 
 
 **Lot summary PSI**
+
 ![Image_name](Resources/lot_summary_PSI.png)
 
 
@@ -70,10 +74,11 @@ This is the code I use to perform the T-test.
 
 ```PSI_t.test <- t.test(Suspension_Coil_table$PSI, mu=1500)```
 
+**T-tests for all lots**
 ![Image_name](Resources/t_test_all_lots.png)
 
 
-The t-test for all the manufacturing lots shows that there is not a significant statistical difference between the mean of all lots and the presumed population mean. The population mean of 1500 falls within the confidence interval of 1497.507 and 1500.053. The p-value also indicates that we fail to reject the null hypothesis and accept that the mean is equal to ~1500 PSI.
+The t-test for all the manufacturing lots shows that there is not a significant statistical difference between the mean of all lots and the presumed population mean. The population mean of 1500 PSI falls within the confidence interval of 1497.507 and 1500.053. The p-value also indicates that we fail to reject the null hypothesis and accept that the mean is equal to ~1500 PSI.
 
 
 The following code was used to determine the t-test for all lots.
@@ -83,10 +88,10 @@ The following code was used to determine the t-test for all lots.
 
 
 
-
+**T-tests for subsets**
 ![Image_name](Resources/subset_t_tests.png)
 
-When performing the t-test for each individual lot we find that the mean of lot number 1 and lot number 2, both fall within their respective confidence intervals failing to reject the null hypothesis. We can observe there is no statistical difference between the sample mean and the population mean.
+When performing the t-test for each individual lot, we find that the mean of lot number 1 and lot number 2 both fall within their respective confidence intervals failing to reject the null hypothesis. We can observe that there is no statistical difference between the sample mean and the population mean.
 
 However, the t-test for lot number 3 shows that there is a significant statistical difference between the mean of the sample distribution and the mean of the population distribution. The population mean of 1500 PSI falls outside our confidence interval of 1492.431 and 1499.849. The t-test p-value of 0.04168 is less than the usual significance level of 0.05, which indicates that we can reject the null hypothesis and support our alternative hypothesis that the true mean is not equal to 1500 PSI. 
 
@@ -102,11 +107,11 @@ Our research question would be the following:
 
 Our null hypothesis or H0 is:
 
-**H0: The vehicle length means of all groups are equal.**
+**H<sub>0</sub>: The *Mean* vehicle length  of all groups are equal.**
 
 Our alternative hypothesis or Ha is:
 
-**Ha: At least one of the vehicle length means is different from all other groups.**
+**H<sub>a</sub>: At least one *Mean* of the vehicle length is different from all other groups.**
 
 To answer this question, we would need to obtain vehicle length data from other manufacturers to compare it against our data using a **one-way ANOVA** test, which is used to test one independent variable with variables in multiple groups.
 
