@@ -75,6 +75,7 @@ This is the code I use to perform the T-test.
 ```PSI_t.test <- t.test(Suspension_Coil_table$PSI, mu=1500)```
 
 **T-tests for all lots**
+
 ![Image_name](Resources/t_test_all_lots.png)
 
 
